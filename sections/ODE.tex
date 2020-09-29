@@ -1,0 +1,83 @@
+\part{Ordinary Differential Equations}
+\setcounter{section}{1}
+
+% Definition von ODE
+\Def A \textit{differential equation} is an equation where the unknown is a function f, and the equation relates $f(x)$ with values of derivatives $f^{(i)}$ \textbf{at the same point} $x$.
+
+\Def Ordinary $\iff$ One variable only
+
+\sep
+
+\Def A Linear ODE is an equation of the form
+\[ y^{(k)} + a_{k - 1} y^{(k - 1)} + \cdots + a_0 y = D(y) = b \] 
+where $y = f(x)$ is the unknown function \\
+$a_{k - 1}(x), ..., a_0(x), b(x)$ are continuous functions. \\
+
+\Def Homogenous $ \iff b(x) = 0$ 
+
+\Def[Initial Condition] A set of equations
+\[y(x_0) = y_0, y'(x_0) = y_1, ..., y^{(k - 1)}(x_0) = y_{k - 1} \]
+
+\sep
+
+\Satz[2.2.3] $I \subset \R$,  linear ODE of order $k \geq 1$
+\begin{enumerate}
+\item[(1)] Let $S_0$ be the set of solutions for $b = 0$. Then is $S_0$ a vector space of dimension k.
+\item[(2)] For any initial conditions, there is a unique solution $f \in S_0$, s.t.
+\[y(x_0) = y_0, y'(x_0) = y_1, ..., y^{(k - 1)}(x_0) = y_{k - 1} \]
+
+\item[(3)] For an arbitrary b, the set of solutions is $S_b = \{f + f_p | f \in S_0\}$, where $f_p$ is a particular solution
+\item[(4)] For any initial value problem, there is a unique solution $f \in S_b$
+\end{enumerate}
+\Bem If $b \neq 0$, then $S_b$ is not a vector space \\
+\Bem If $f_1, f_2$ are solutions for $b_1(x), b_2(x)$, \\ $f_1 + f_2$ is a solution for $b_1(x) + b_2(x)$
+\sep
+
+
+
+\subsection{Linear ODEs of order 1}
+\Procedure Consider $y' + ay = b $
+\begin{enumerate}
+\item[1.] Solve homogeneous equation $y' + ay = 0$ 
+\[ f_0(x) = z \cdot e^{-A(x)} \text{ for } z \in \C\]
+\item[2.] Find a solution of the inhomogeneous equation $f_p$, then $S_b  = f_p + S_0$.
+\begin{itemize}
+  \item Guess: $b(x)$ should resemble $f_p$
+  \item Variation of Constants (Assume constants of $S_0$ are functions)
+  \item Formula: $f_p(x) = \int b(x) \cdot e^{A(x)} dx \cdot e^{-A(x)}$
+\end{itemize}
+\end{enumerate}
+\Bem The solutions are given by $f_0 + z f_1$, where $z \in \C$ and $f_1$ is a basis of $S$ \\
+\Bem To solve the real value problem $f(x_0) = y_0$, one can solve $f_0(x_0) + z f_1(x_0) = y_0$ \\
+\Bem If $a \in \R$, then there exists $f_0, f_1 \in \R$ \\
+
+\subsection{Linear ODE with constant coefs. }
+The equation takes the form: Let $a_{k - 1}, ..., a_0 \in \C$
+\[ y^{(k)} + a_{k - 1} y^{(k - 1)} + ... + a_0 y = b(x) \] 
+\sep
+
+\Procedure Solving homogeneous equations \\
+We look for solutions of the form $f(x) = e^{\lambda x}, \lambda \in \C$
+\begin{align*}
+0 &=y^{(k)} + a_{k - 1} y^{(k - 1)} + ... + a_0 y \\
+&=  e^{\lambda x}( \lambda^k + a_{k - 1} \lambda^{k - 1} + \cdots + a_1 \lambda + a_0) \\
+&= e^{\lambda x} P(\lambda)
+\end{align*}
+
+\Theorem $f$ is a solution if and only if $P(\lambda) = 0$. \\
+\Bem According to the Fundamental Theorem of Algebra, there are k roots for $P$ in $\C$. \\
+\Bem $P(\lambda)$ is the \textbf{characteristic polynomial} and the roots are called \textbf{eigenvalues}\\
+
+\sep
+
+\textbf{Case 1:} k distinct solutions for $P(\lambda) = 0$ \\
+$f_j(x) = e^{\lambda_j x}$ are linearly independent. \\
+
+Every solution for the ODE is of the form:
+\[ f(x) = z_1 e^{\lambda_1 x} + \cdots + z_k e^{\lambda_k x}, \text{ with }  z_1, ..., z_2 \in \C\]
+
+\sep
+
+\textbf{Case 2:} $\exists \lambda$, which is a root of order $2 \leq j \leq k$
+\[ f_{\lambda, 0}(x) = x^0 e^{\lambda x}, \cdots, f_{\lambda, j - 1}(x) = x^{j - 1}  e^{\lambda x}\]
+Taking the union of the functions $f_{\lambda, j}$ for all roots of P, each with its multiplicity, gives a basis of the space of solutions. 

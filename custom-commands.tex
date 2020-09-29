@@ -1,0 +1,95 @@
+\newcommand{\emptyarg}[1][]{\ifthenelse{\isempty{#1}}{}{\ (#1)}}
+
+% % % % %
+% Structural
+% % % % %
+
+\newcommand{\Def}[1][]{\colorbox{defcolor}{\color{titlecolor}{\textbf{Def.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Satz}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Thm.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Theorem}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Thm.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Lemma}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Lem.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Korollar}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Kor.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Trick}[1][]{\colorbox{trkcolor}{\color{titlecolor}{\textbf{Trick:\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Recipe}[1][]{\colorbox{trkcolor}{\color{titlecolor}{\textbf{Recipe:\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Procedure}[1][]{\colorbox{trkcolor}{\color{titlecolor}{\textbf{Procedure:\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Bsp}[1][]{\colorbox{bspcolor}{\color{titlecolor}{\textbf{Bsp.\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Beweis}[1][]{\colorbox{bewcolor}{\color{titlecolor}{\textbf{Proof:\emptyarg[#1]}}}\kern+0.3ex}
+
+\newcommand{\Proof}[1][]{\colorbox{bewcolor}{\color{titlecolor}{\textbf{Proof:\emptyarg[#1]}}}\kern+0.3ex}
+
+% % % % %
+% In Text
+% % % % %
+
+\newcommand{\Bem}{\textbf{Bem: }}
+%\newcommand{\Beweis}{\textbf{Beweis: }}
+\newcommand{\Achtung}{\textbf{Achtung: }}
+\newcommand{\Wichtig}{\textbf{Wichtig: }}
+
+% % % % %
+% Colors
+% % % % %
+
+\definecolor{defcolor}{rgb}{0.75, 1, 0.75}
+\definecolor{thmcolor}{rgb}{1, 0.75, 0.75}
+\definecolor{bewcolor}{rgb}{1, 0.7, 0}
+\definecolor{trkcolor}{rgb}{0.7, 0.95, 1}
+\definecolor{bspcolor}{rgb}{1, 0.95, 0.43}
+\definecolor{titlecolor}{rgb}{0,0,0}
+
+% % % % %
+% Math
+% % % % %
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arc}{arc}
+
+
+\renewcommand\div{\operatorname{div}}
+\DeclareMathOperator{\rot}{rot}
+\newcommand{\laplace}{\Delta}
+
+\DeclareMathOperator{\cis}{cis}
+
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Hess}{Hess}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\scprod}[1]{\left\langle #1 \right\rangle}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+\newcommand{\diag}{\operatorname{diag}}
+
+\newcommand{\hl}[1]{\colorbox{black!7}{$#1$}}
+
+% % % % %
+% Layout
+% % % % %
+
+\newcommand{\setsep}{\ \vert \ }
+
+\newcommand{\todo}{\textcolor{red}{TODO }}
+
+\newcommand{\sep}{\vspace{5pt}\noindent\hrule\vspace{5pt}}
