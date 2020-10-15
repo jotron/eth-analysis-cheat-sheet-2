@@ -1,5 +1,5 @@
 \part{Ordinary Differential Equations}
-\setcounter{section}{1}
+\setcounter{section}{0}
 
 % Definition von ODE
 \Def A \textit{differential equation} is an equation where the unknown is a function f, and the equation relates $f(x)$ with values of derivatives $f^{(i)}$ \textbf{at the same point} $x$.
@@ -31,11 +31,11 @@ $a_{k - 1}(x), ..., a_0(x), b(x)$ are continuous functions. \\
 \end{enumerate}
 \Bem If $b \neq 0$, then $S_b$ is not a vector space \\
 \Bem If $f_1, f_2$ are solutions for $b_1(x), b_2(x)$, \\ $f_1 + f_2$ is a solution for $b_1(x) + b_2(x)$
-\sep
 
 
 
-\subsection{Linear ODEs of order 1}
+
+\section{Linear ODEs of order 1}
 \Procedure Consider $y' + ay = b $
 \begin{enumerate}
 \item[1.] Solve homogeneous equation $y' + ay = 0$ 
@@ -51,33 +51,64 @@ $a_{k - 1}(x), ..., a_0(x), b(x)$ are continuous functions. \\
 \Bem To solve the real value problem $f(x_0) = y_0$, one can solve $f_0(x_0) + z f_1(x_0) = y_0$ \\
 \Bem If $a \in \R$, then there exists $f_0, f_1 \in \R$ \\
 
-\subsection{Linear ODE with constant coefs. }
+\section{Lin. ODE with constant coefs. }
 The equation takes the form: Let $a_{k - 1}, ..., a_0 \in \C$
 \[ y^{(k)} + a_{k - 1} y^{(k - 1)} + ... + a_0 y = b(x) \] 
 \sep
 
-\Procedure Solving homogeneous equations \\
-We look for solutions of the form $f(x) = e^{\lambda x}, \lambda \in \C$
+\Intuition We look for solutions of the form $f(x) = e^{\lambda x}, \lambda \in \C$
 \begin{align*}
 0 &=y^{(k)} + a_{k - 1} y^{(k - 1)} + ... + a_0 y \\
 &=  e^{\lambda x}( \lambda^k + a_{k - 1} \lambda^{k - 1} + \cdots + a_1 \lambda + a_0) \\
 &= e^{\lambda x} P(\lambda)
 \end{align*}
 
-\Theorem $f$ is a solution if and only if $P(\lambda) = 0$. \\
-\Bem According to the Fundamental Theorem of Algebra, there are k roots for $P$ in $\C$. \\
+$\implies f$ is a solution if and only if $P(\lambda) = 0$. \\
+$\implies$ According to the Fundamental Theorem of Algebra, there are k roots for $P$ in $\C$. \\
 \Bem $P(\lambda)$ is the \textbf{characteristic polynomial} and the roots are called \textbf{eigenvalues}\\
 
 \sep
 
-\textbf{Case 1:} k distinct solutions for $P(\lambda) = 0$ \\
-$f_j(x) = e^{\lambda_j x}$ are linearly independent. \\
-
-Every solution for the ODE is of the form:
-\[ f(x) = z_1 e^{\lambda_1 x} + \cdots + z_k e^{\lambda_k x}, \text{ with }  z_1, ..., z_2 \in \C\]
+\Theorem Let $\lambda_1, ..., \lambda_r$ be the pairwise distinct roots of $P(\lambda)$ with corresponding multiplicity $m_1, ..., m_r$.
+Then the functions
+$$x^{l}  e^{\lambda_j x} \quad 1 \leq j \leq r, \quad 0 \leq l < m_j$$
+form a basis of the space of solutions of the homogeneous equation. \\
+E.g. for k distinct roots we get:
+$$ f(x) = z_1 e^{\lambda_1 x} + \cdots + z_k e^{\lambda_k x}, \text{ with }  z_1, ..., z_2 \in \C $$
 
 \sep
 
-\textbf{Case 2:} $\exists \lambda$, which is a root of order $2 \leq j \leq k$
-\[ f_{\lambda, 0}(x) = x^0 e^{\lambda x}, \cdots, f_{\lambda, j - 1}(x) = x^{j - 1}  e^{\lambda x}\]
-Taking the union of the functions $f_{\lambda, j}$ for all roots of P, each with its multiplicity, gives a basis of the space of solutions. 
+\Remark If we are only interested in real solutions, the solutions based on complex roots, the basis can be transformed. For $\lambda=\beta + i\gamma$:
+$$ \text{span}(e^{\lambda x}, e^{\bar{\lambda}x}) =
+   \text{span}(e^{\beta x} \cos{x}, e^{\beta x} \sin{x})$$
+   
+\subsection{Solving the inhomogenous eqn.}
+\Procedure[Ansatz]
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{l|l}
+      $b(x)$ & Ansatz $y_p(x)$ \\
+      \hline
+      
+      $P_n(x)$ & $Q_n(x)$ \\
+      $P_n(x)e^{\mu x}$ & $Q_n(x)e^{\mu x}$\\
+      \hline
+      
+      $\begin{matrix}
+      P_n(x) \sin(\nu x) \\ + 
+      Q_n(x)\cos(\nu x)
+      \end{matrix}$ 
+      & $\begin{matrix}R_n(x)\sin(\nu x)\qquad\\ 
+      + S_n(x)\cos(\nu x)\end{matrix}$ \\
+      \hline
+      
+      $\begin{matrix}P_n(x)e^{\mu x}\sin(\nu x) \\
+       + Q_n(x)e^{\mu x}\cos(\nu x)\end{matrix} $
+      & $\begin{matrix}e^{\mu x}(R_n(x)\sin(\nu x) \\ + S_n(x)\cos(\nu x))\end{matrix}$
+    \end{tabular}
+  \end{center}
+\end{table}
+Insert $y_p(x)$ in the inhomogeneous eqn. and solve for the constants. $P_n(x), Q_n(x), \dots$ are polynomials of degree $n$. \\
+\Remark If $d$ is a root of $P(\lambda)$ of multiplicity $m$, multiply $y_p(x)$ by $x^m$.
+\sep
+\Procedure[Variation of constants] 
