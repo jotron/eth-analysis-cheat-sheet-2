@@ -111,4 +111,12 @@ $$ \text{span}(e^{\lambda x}, e^{\bar{\lambda}x}) =
 Insert $y_p(x)$ in the inhomogeneous eqn. and solve for the constants. $P_n(x), Q_n(x), \dots$ are polynomials of degree $n$. \\
 \Remark If $d$ is a root of $P(\lambda)$ of multiplicity $m$, multiply $y_p(x)$ by $x^m$.
 \sep
-\Procedure[Variation of constants] 
+\Procedure[Variation of constants] \\
+This method can be derived from the matrix describing the problem. Assume $n=2$. \\
+Try $y_p = z_{1}(x) f_{1}+z_{2}(x)f_{2}$ after solving the system:
+$$
+\left\{\begin{array}{l}
+z_{1}^{\prime}(x) f_{1}+z_{2}^{\prime}(x) f_{2}=0 \\
+z_{1}^{\prime}(x) f_{1}^{\prime}+z_{2}^{\prime}(x) f_{2}^{\prime}=b
+\end{array}\right.
+$$
