@@ -1,0 +1,114 @@
+\part{Differential calculus in $\text{R}^n$}
+\setcounter{section}{0}
+% General Disclosure
+If not specified, f is a function $f\colon X\subset \mathbb{R}^n\to\mathbb{R}^m$ and we denote
+$$f(x) = \begin{pmatrix}f_1(x)\\f_2(x)\\\vdots\\f_m(x)\end{pmatrix}$$
+\section{Continuity}
+
+\Prop[Sequences] The sequence $(x_k)_{k\in\mathbb{N}}, x_k \in \mathbb{R}^n$ converges to $y\in \mathbb{R}^n$ as $k\rightarrow +\infty$ iff the following two equivalent conditions hold:
+\begin{enumerate}
+    \item $\forall i$, $\liminf{k}(x_{k})_i= y_i $.
+    \item $\liminf{k}\norm{x_k-y}=0$.
+\end{enumerate}
+
+\Prop[Limit] Let $x_0 \in X, y\in\mathbb{R}^m$.
+$$ \lim_{\substack{x\rightarrow x_0 \\x \neq x_0}} f(x) = y $$
+iff for every sequence $x_k$ which converges to $x_0$, $f(x_k)$ converges to $y$.
+
+\Def[Continuity]
+$$ f \text{ is continuous at } x_0 \iff \lim_{\substack{x\rightarrow x_0 \\x \neq x_0}} f(x) = f(x_0)$$
+
+\Def[Bounded, Closed, Open, Compact] \\
+A subset $X\subset\mathbb{R}^n$ is called
+\begin{itemize}
+    \item bounded $\iff \exists M \forall x \in X \norm{x}<M$.
+    \item closed $\iff $ Every sequence in $X$ converges in $X$
+   	\item open $\iff$ For any $x \in X$ there exists a ball around $x$ in $X$
+   	\item compact $\iff$ closed and bounded.
+\end{itemize}
+
+\section{Derivatives}
+
+\Def[Partial derivatives] Let $X\subset\mathbb{R}^n$ be an open set, $f\colon X \to \mathbb{R}^m$ be a function. Then we decompose f into $m$ functions $f_j$ in order to write
+$$\pdv{f}{x_i}\left(x_{0}\right) = \begin{pmatrix}
+								   \pdv{f_1}{x_i}\left(x_{0}\right)
+								   \\ \vdots \\
+								   \pdv{f_m}{x_i}\left(x_{0}\right)
+								   \end{pmatrix}$$
+
+where $\pdv{f_j}{x_i}\left(x_{0}\right) = \lim_{h \rightarrow 0} \frac{f_j(x_0+h e_i)-f_j(x_0)}{h}$. \\
+
+\Def[Directional derivative] Given $u \in \R^n$ with $\norm{u}=1$, the directional derivative at $a$ is
+$$D_uf(a) := \lim_{h\to0}\frac{f(a + hu) -f(a)}{h} =
+		\left.\frac{d}{dh}f(a+hu)\right|_{h = 0}$$
+If $f$ is differentiable in $a$
+$$ D_u f(a) = \vu \cdot \nabla f(a)$$
+
+\Def[Gradient] For $f : X \rightarrow \R$
+$$ \nabla f (x_0) := \begin{pmatrix}\partial_{x_1}f(x_0)\\\vdots\\\partial_{x_n}f(x_0)\end{pmatrix}$$
+The gradient is the direction of \textit{steepest ascent}.
+
+\Def[Jacobi Matrix]
+$$
+J_f(x) = \left(\pdv{f_i}{x_j}\left(x\right)\right)_{\substack{ i= 1,\dots,m;\\ j=1,\dots,n}} = 
+    \begin{pmatrix}{\frac {\partial f_{1}}{\partial x_{1}}}&\cdots &{\frac {\partial f_{1}}{\partial x_{n}}}\\\vdots &\ddots &\vdots \\{\frac {\partial f_{m}}{\partial x_{1}}}&\cdots &{\frac {\partial f_{m}}{\partial x_{n}}}\end{pmatrix}
+$$
+
+\Def[Hessian Matrix] Let $f \in C^2(X;\R^n)$, then $\text{Hess}_f(x_0)$ is given by
+$$
+ \underset{\substack{ i= 1,\dots,n;\\ j=1,\dots,n}}{\left(\frac{\partial ^{2}f}{\partial x_{i} x_j}\left(x_0\right)\right)} =
+\begin{pmatrix}{\frac {\partial ^{2}f}{\partial x_{1}^{2}}}&{\frac {\partial ^{2}f}{\partial x_{1}\,\partial x_{2}}}&\cdots
+\\[2.2ex]{\frac {\partial ^{2}f}{\partial x_{2}\,\partial x_{1}}}&{\frac {\partial ^{2}f}{\partial x_{2}^{2}}}&\cdots 
+\\[2.2ex]\vdots &\vdots &\ddots  \end{pmatrix}
+$$
+
+
+\section{The Differential}
+
+\Def[Differentiability] Let $u\colon \mathbb{R}^n\to\mathbb{R}^m$ be a linear map and $x_0\in X$. We say that $f$ is \textit{differentiable at $x_0$} if
+$$
+    \lim_{\substack{x\to x_0\\x\neq x_0}}\frac{f(x)-f(x_0)-u(x-x_0)}{\norm{x-x_0}} = 0
+$$
+The linear map $u$ is then called the \textit{differential of f at $x_0$} and is denoted by $df(x_0) = d_{x_0}f$.\\
+\Intuition This means that we can approximate $f(x)$ by a linear map $df$ such that $R(x,x_0)$ goes faster to zero than $\norm{x-x_0}$.
+
+
+\Theorem If $f$ is differentiable at $x_0$ then
+\begin{enumerate}
+	\item $f$ is continuous at $x_0$
+	\item All partial derivatives exist.
+	\item $df(x_0): \R^n \rightarrow \R^m$ is given by $x \mapsto Ax$
+\end{enumerate}
+$$A=J_f(x_0)$$
+\sep
+
+\Theorem[Continuous Partials] If $f$ has all partial derivatives and they are continuous on $X$, then $f$ is differentiable on $X$ \\
+
+\Def[Tangent Space] Let $f$ be differentiable then the tangent space of $f$ at $x_0$ is
+$$\{(x,y)\in\mathbb{R}^n\times\mathbb{R}^m\mid y = f(x_0)+u(x-x_0)\} $$
+($\approx$ shifted image of the differential) \\
+
+\Theorem[Chain rule] Let $Y\subset\mathbb{R}^m$ be an open set and $f\colon X \to Y$ and $g\colon Y \to \mathbb{R}^p$ be differentiable functions on $X$ and $Y$, respectively. Then $g\circ f\colon X \to \mathbb{R}^p$ is differentiable on $X$ and the differential for  $x_0\in X$ is given by 
+$$
+    d(g\circ f)(x_0) = dg(f(x_0))\circ df(x_0)
+$$
+In particular, the Jacobi matrix satisfies
+$$
+    J_{g\circ f}(x_0) = J_g(f(x_0)) J_f(x_0)
+$$
+
+\Theorem[Change of Variables] If $f$ is differentiable and $\det(J_f(x_0)) \neq 0$ then $f$ is a change of variables around $x_0$. \\
+
+\Theorem[Order of Diff.] Let $f \in C^k$ for $k\geq 2$. Then the partial derivatives of order $\leq k$ are independent of the order of differentiation.
+
+
+\section{Taylor polynomials}
+
+\Def[Taylor Polynomial] Let $f\colon \mathbb{R}^n \to \mathbb{R}$ and $f\in C^k(X;\mathbb{R})$. The \textit{k-th Taylor polynomial of $f$ at point $x_0$} is a polynomial in $n$ variables of degree $\le k$ given by $T_kf(y;x_0) =$
+\begin{align*}
+\sum_{{m_1 + \ldots + m_n \leq k}}\frac{1}{m_1!\cdots m_n!}\frac{\partial^k f}{\partial_{1}^{m_1}\cdots \partial_{n}^{m_n}} y_1^{m_1}\cdots y_n^{m_n}
+\end{align*}
+For the 2nd degree case we have:
+$$T_2f(y;x_0) = f(x_0) + \nabla f (x_0) \cdot \vy + y^T \cdot \text{Hess}_f(x_0) \cdot \vy $$
+
+\section{Critical Points}

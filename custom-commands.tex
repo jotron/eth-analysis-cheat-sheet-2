@@ -5,16 +5,10 @@
 % % % % %
 
 \newcommand{\Def}[1][]{\colorbox{defcolor}{\color{titlecolor}{\textbf{Def.\emptyarg[#1]}}}\kern+0.3ex}
-
-
-
-\newcommand{\Satz}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Thm.\emptyarg[#1]}}}\kern+0.3ex}
-
+\newcommand{\Prop}[1][]{\colorbox{defcolor}{\color{titlecolor}{\textbf{Prop.\emptyarg[#1]}}}\kern+0.3ex}
 \newcommand{\Theorem}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Thm.\emptyarg[#1]}}}\kern+0.3ex}
-
 \newcommand{\Lemma}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Lem.\emptyarg[#1]}}}\kern+0.3ex}
-
-\newcommand{\Korollar}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Kor.\emptyarg[#1]}}}\kern+0.3ex}
+\newcommand{\Corollary}[1][]{\colorbox{thmcolor}{\color{titlecolor}{\textbf{Kor.\emptyarg[#1]}}}\kern+0.3ex}
 
 
 
@@ -75,8 +69,7 @@
 
 \DeclareMathOperator{\cis}{cis}
 
-\DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\Hess}{Hess}
+%\DeclareMathOperator{\grad}{grad}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -87,6 +80,7 @@
 \renewcommand\Re{\operatorname{Re}}
 \renewcommand\Im{\operatorname{Im}}
 
+%%% Norms and Brackets
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\scprod}[1]{\left\langle #1 \right\rangle}
@@ -96,6 +90,44 @@
 \newcommand{\diag}{\operatorname{diag}}
 
 \newcommand{\hl}[1]{\colorbox{black!7}{$#1$}}
+
+%%% Limits
+\renewcommand{\liminf}[1]{\lim_{#1\rightarrow +\infty}}
+
+%%% VECTORS (LATIN)
+%\newcommand{\mat}[1]{\mathbf{#1}}
+%\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newcommand{\va}{\vec{a}}
+\newcommand{\vb}{\vec{b}}
+\newcommand{\vc}{\vec{c}}
+\newcommand{\vd}{\vec{d}}
+\newcommand{\ve}{\vec{e}}
+\newcommand{\vf}{\vec{f}}
+\newcommand{\vg}{\vec{g}}
+\newcommand{\vh}{\vec{h}}
+\newcommand{\vi}{\vec{i}}
+\newcommand{\vj}{\vec{j}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\vl}{\vec{l}}
+\newcommand{\vm}{\vec{m}}
+\newcommand{\vn}{\vec{n}}
+\newcommand{\vo}{\vec{o}}
+\newcommand{\vp}{\vec{p}}
+\newcommand{\vq}{\vec{q}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vs}{\vec{s}}
+\newcommand{\vt}{\vec{t}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vv}{\vec{v}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vy}{\vec{y}}
+
+%%% Differentiation
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
+
+\DeclareMathOperator{\Hess}{Hess}
 
 % % % % %
 % Layout

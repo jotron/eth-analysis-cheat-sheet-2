@@ -20,7 +20,7 @@ $a_{k - 1}(x), ..., a_0(x), b(x)$ are continuous functions. \\
 
 \sep
 
-\Satz[2.2.3] $I \subset \R$,  linear ODE of order $k \geq 1$
+\Theorem[2.2.3] $I \subset \R$,  linear ODE of order $k \geq 1$
 \begin{enumerate}
 \item[(1)] Let $S_0$ be the set of solutions for $b = 0$. Then is $S_0$ a vector space of dimension k.
 \item[(2)] For any initial conditions, there is a unique solution $f \in S_0$, s.t.
@@ -78,9 +78,9 @@ $$ f(x) = z_1 e^{\lambda_1 x} + \cdots + z_k e^{\lambda_k x}, \text{ with }  z_1
 
 \sep
 
-\Remark If we are only interested in real solutions, the solutions based on complex roots, the basis can be transformed. For $\lambda=\beta + i\gamma$:
+\Remark If we are only interested in real solutions, the solutions based on complex roots, the basis can be transformed. For $\lambda=a + b i$:
 $$ \text{span}(e^{\lambda x}, e^{\bar{\lambda}x}) =
-   \text{span}(e^{\beta x} \cos{x}, e^{\beta x} \sin{x})$$
+   \text{span}(e^{a x} \cos{(b x)}, e^{a x} \sin{(b x)})$$
    
 \subsection{Solving the inhomogenous eqn.}
 \Procedure[Ansatz]
@@ -109,7 +109,7 @@ $$ \text{span}(e^{\lambda x}, e^{\bar{\lambda}x}) =
   \end{center}
 \end{table}
 Insert $y_p(x)$ in the inhomogeneous eqn. and solve for the constants. $P_n(x), Q_n(x), \dots$ are polynomials of degree $n$. \\
-\Remark If $d$ is a root of $P(\lambda)$ of multiplicity $m$, multiply $y_p(x)$ by $x^m$.
+\Remark If $y_p(x)$ is a root of $P(\lambda)$ of multiplicity $m$, multiply $y_p(x)$ by $x^m$.
 \sep
 \Procedure[Variation of constants] \\
 This method can be derived from the matrix describing the problem. Assume $n=2$. \\
@@ -120,3 +120,6 @@ z_{1}^{\prime}(x) f_{1}+z_{2}^{\prime}(x) f_{2}=0 \\
 z_{1}^{\prime}(x) f_{1}^{\prime}+z_{2}^{\prime}(x) f_{2}^{\prime}=b
 \end{array}\right.
 $$
+
+\subsection{Other Methods}
+Separation -> See Assistance Summary
