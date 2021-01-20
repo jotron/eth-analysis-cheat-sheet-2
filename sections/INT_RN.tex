@@ -1,0 +1,206 @@
+\columnbreak
+\part{Integrals in $\text{R}^n$}
+\setcounter{section}{0}
+
+\section{Line Integrals}
+
+\Def[Line Integral] Let $I=[a, b]$ be compact.
+\begin{enumerate}
+\item[(1)] Let $f(t)=\left(f_{1}(t), \ldots, f_{n}(t)\right) $
+be continuous.
+$$
+\int_{a}^{b} f(t) d t=\left(\int_{a}^{b} f_{1}(t), \ldots, \int_{a}^{b} f_{n}(t) d t\right) \in \R^{n}
+$$
+
+\item[(2)] A parameterized curve in $\R^{n}$ is a continuous map $\gamma:[a, b] \rightarrow \R^{n}$ that is piecewise $C^{1},$ i.e., there exists $k \geqslant 1$ and a partition
+$$
+a=t_{0}<t_{1}<\cdots<t_{k-1}<t_{k}=b
+$$
+such that the restriction of $f$ to $] t_{j-1}, t_{j}\left[\right.$ is $C^{1}$ for $1 \leqslant j \leqslant k$. We say that $\gamma$ is a parameterized curve between $\gamma(a)$ and $\gamma(b)$
+
+\item[(3)] Let $\gamma:[a, b] \rightarrow \R^{n}$ be a parameterized curve. Let $X \subset \R^{n}$ be a subset containing the image of $\gamma,$ and let $f: X \rightarrow \R^{n}$ be continuous. The line integral of $f$ along $\gamma$ is:
+$$
+\int_{\gamma} f(s) \cdot d s := \int_{a}^{b} f(\gamma(t)) \cdot \gamma^{\prime}(t) d t
+$$
+\end{enumerate}
+
+\sep
+
+\Lemma [Invariance under orientation]\\ Let $\gamma:[a, b] \rightarrow \R^{n}$ be a parameterized curve. An oriented reparameterization of $\gamma$ is a  $\sigma:[c, d] \rightarrow \R^{n}$ such that $\sigma=\gamma \circ \varphi,$ where $\varphi:[c, d] \rightarrow[a, b]$ is a continuous map, differentiable on $] a, b[,$ that is strictly increasing and satisfies $\varphi(a)=c$ and $\varphi(b)=d$. \\
+Let $X$ be a set containing the image of $\gamma$, $f: X \rightarrow \R^{n}$ continuous. Then
+$$\int_{\gamma} f(s) \cdot d \vec{s}=\int_{\sigma} f(s) \cdot d \vec{s}$$
+
+\Def [Conservative Vector Field]\\ Let $X \subset \R^{n}$ and $f: X \rightarrow \R^{n}$ a continuous vector field. $X$ is called conservative if, for any $x_{1}, x_{2}$ in $X,$ the line integral
+$$\int_{\gamma} f(s) \cdot d \vec{s}$$
+is independent of the choice of a parametrized curve $\gamma$ in $X$ from $x_{1}$ to $x_{2},$\\
+Equivalently $f$ is conservative if and only if $\int_{\gamma} f(s) \cdot d \vec{s} = 0$ for any closed parametrized curve in $X$. \\
+
+\Theorem [Potential] Let $f: X \rightarrow \R^{n}$ be a conservative vector field. Then there exists a $C^{1}$ function $g$ on $X$ such that $f=\nabla g$.
+If $X$ is a path-connected set, then $g$ is unique up to addition of a constant.
+\\
+
+\Prop [4.1.13] Let $X \subset \R^{n}$ be open and $f: X \rightarrow \R^{n}$ a vector field of class $C^{1}$.
+If $f$ is conservative, then we have for any integers with $1 \leqslant i \neq j \leqslant n$.
+
+$$
+\frac{\partial f_{i}}{\partial x_{j}}=\frac{\partial f_{j}}{\partial x_{i}}
+$$
+
+\sep
+
+\Def[Star-shaped] $X \subset \R^n$ is star-shaped if there exists $x_0$ such that $\forall x \in X$, the line segment joining $x_0$ to $x$ is contained in $X$.
+\\
+
+\Theorem[4.1.17] Let $X \subset \R^n$ be star-shaped and open. Let $f$ be a $C^{1}$ vector field such that
+
+$$
+\frac{\partial f_{i}}{\partial x_{j}}=\frac{\partial f_{j}}{\partial x_{i}}
+$$
+on $X$ for all $i \neq j$ between 1 and $n .$ Then the vector field $f$ is conservative.
+
+\sep
+
+\Def [Curl] Let $X \subset \R^{3}$ be an open set and $f: X \rightarrow \R^{3}$ a $C^{1}$ vector field. Then 
+$\operatorname{curl}(f)$ is the continuous vector field on $X$ defined by
+$$
+\operatorname{curl}(f)=\left(\begin{array}{l}
+\partial_{y} f_{3}-\partial_{z} f_{2} \\
+\partial_{z} f_{1}-\partial_{x} f_{3} \\
+\partial_{x} f_{2}-\partial_{y} f_{1}
+\end{array}\right)
+$$
+
+\section{Riemann Integral in $\R^n$}
+
+\Theorem[Fubini] Let $f: X \rightarrow \R^{n}$ be a function on a compact subset $X$. If $n_{1}$ and $n_{2}$ are integers $\geqslant 1$ such that $n=n_{1}+n_{2},$ then for $x_{1} \in \R^{n_{1}},$ let
+$$
+Y_{x_{1}}=\left\{x_{2} \in \R^{n_{2}}:\left(x_{1}, x_{2}\right) \in X\right\} \subset \R^{n_{2}}
+$$
+Let $X_{1}$ be the set of $x_{1} \in \R^{n}$ such that $Y_{x_{1}}$ is not empty. Then $X_{1}$ is compact in $\R^{n_{1}}$ and $Y_{x_{1}}$ is compact in $\R^{n_{2}}$ for all $x_{1} \in X_{1} .$ If the function
+$$
+g\left(x_{1}\right)=\int_{Y_{x_{1}}} f\left(x_{1}, x_{2}\right) d x_{2}
+$$
+on $X_{1}$ is continuous, then
+
+\begin{align*}
+\int_{X} f\left(x_{1}, x_{2}\right) d x &=\int_{X_{1}} g\left(x_{1}\right) d x_{1} \\
+&=\int_{X_{1}}\left(\int_{Y_{x_{1}}} f\left(x_{1}, x_{2}\right) d x_{2}\right) d x_{1}
+\end{align*}
+
+
+\sep
+
+\Def [Negligible set] Let $1 \leqslant m \leqslant n$
+
+\begin{enumerate}
+\item[(1)] A parameterized $m$-set is a continuous map
+$$
+f:\left[a_{1}, b_{1}\right ] \times \cdots \times \left[a_{m}, b_{m}\right] \rightarrow \R^{n}
+$$
+which is differentiable on
+$$
+] a_{1}, b_{1}[ \ \times \cdots \times \ ] a_{m}, b_{m}[
+$$
+
+\item[(2)] A subset $B \subset \R^{n}$ is negligible if there exist an integer $k \geqslant 0$ and parameterized $m_{i}$-sets $f_{i}: X_{i} \rightarrow \R^{n},$ with $1 \leqslant i \leqslant k$ and $m_{i}<n,$ such that
+$$
+X \subset f_{1}\left(X_{1}\right) \cup \cdots \cup f_{k}\left(X_{k}\right)
+$$
+\end{enumerate} 
+
+\Lemma [Integral of neglibible set] Let $X \subset \R^n$ be compact and $X$ be negligible. Then for any continuous function, we have
+\[ \int_X f(x) dx = 0 \]
+
+
+\subsection{Improper integrals}
+
+\Def [4.3.1] Let $X \in \R^n$ be non-compact and $f: X \rightarrow \R^n$ continuous and positive. Let $X_k$ be a sequence, such that $X_k \subset X_{k + 1}$ and $\bigcup\limits_{k = 1}^\infty X_k = X$ \\
+We say that $\int_X f(x) dx$ converges if
+\[\int_X f(x) dx = \lim \limits_{k \rightarrow \infty} \int_{X_k} f(x) dx \text{ and exists} \]
+
+
+\subsection{Change of variable}
+
+\Def[Change of variables] If $f$ is differentiable and $\det(J_f(x_0)) \neq 0$ then $f$ is a change of variables around $x_0$. \\
+
+\Theorem[Change of variables]
+Let $\overline{X},\overline{Y}\subset\mathbb{R}^n$ be compact and $\varphi\colon \overline{X} \to \overline{Y}$ a continuous function that is of class $C^1$ and bijective on the interiors $X_0$ and $Y_0$ of $\overline{X}$ and $\overline{Y}$ where $\overline{X} = X_0 \cup B$ and $\overline{Y} = Y_0 \cup C$ with $X_0, Y_0$ open and $C,D$ negligible. Then 
+$$\int_{\overline{Y}} f(y) dy = \int_{\overline{X}} f(\varphi(x)) \cdot \abs{\det J_{\varphi}(x)} dx$$
+Examples:
+    \begin{enumerate}
+        \item polar coordinates
+        $$dx dy = r dr d\varphi$$
+        
+        \item cylindrical coordinates
+        $$dx dy dz = r d\theta dr dz$$
+        
+        \item spherical coordinates
+        $$dx dy dz = r^2 \sin\varphi dr d\theta d\varphi$$
+        \begin{align*}
+        	f\colon (0,\infty)\times[0,2\pi)\times (0,\pi)\to \mathbb{R}^3\\
+        (r,\theta, \phi) \mapsto (x,y, z) = (&r \sin(\phi)\cos(\theta), \\
+        										 &r \sin(\phi)\sin(\theta), \\
+        										 &r\cos(\phi))
+        \end{align*}
+
+    \end{enumerate}
+
+
+\subsection{Geometric applications}
+
+\begin{enumerate}
+\item[(1)] [Center of mass] Let $X \subset \R^n$ be compact, such that the volume of $X$ is positive. The center of mass (or barycenter) of $X$ is the point $\bar{x} \in R^{n}$ such that $\bar{x}=\left(\bar{x}_{1}, \ldots, \bar{x}_{n}\right)$ with
+$$
+\bar{x}_{i}=\frac{1}{\operatorname{Vol}(X)} \int_{X} x_{i} d x
+$$
+
+\item[(2)] [Surface area] Consider a continuous function
+$$
+f:[a, b] \times[c, d] \rightarrow \R
+$$
+which is $C^{1}$ on $] a, b[\times] c, d[.$ Let
+$$
+\Gamma=\left\{(x, y) \in[a, b] \times[c, d], z=f(x, y)\right\} \subset \R^{3}
+$$
+be the graph of $f$. Intuitively, this is a surface, and it should have an area. This is in fact given by
+$$
+\int_{a}^{b} \int_{c}^{d} \sqrt{1+\left(\partial_{x} f(x, y)\right)^{2}+\left(\partial_{y} f(x, y)\right)^{2}} d x d y
+$$
+Such a result also holds for the graphs of functions defined on other sets, such as discs, provided they are $C^{1}$ in the "interior" of the domain.
+
+There is an analogue formula for the length of the graph of a function $f:[a, b] \rightarrow \mathbf{R},$ namely it is equal to
+$$
+\int_{a}^{b} \sqrt{1+f^{\prime}(x)^{2}} d x
+$$
+\end{enumerate}
+
+\section{Green's Formula}
+
+\Theorem [Green]. Let $X \subset \R^{2}$ be compact with a boundary $\partial X$ that is the union of finitely many simple closed parameterized curves $\gamma_{1}, \ldots, \gamma_{k} .$ Assume that
+$$
+\gamma_{i}:\left[a_{i}, b_{i}\right] \rightarrow \R^{2}
+$$
+has the property that $X$ lies always to the left of the tangent vector $\gamma_{i}^{\prime}(t)$ based at $\gamma_{i}(t)$. Let $f=\left(f_{1}, f_{2}\right)$ be a vector field of class $C^{1}$ defined on some open set containing $X .$ Then we have
+$$
+\int_{X}\left(\frac{\partial f_{2}}{\partial x}-\frac{\partial f_{1}}{\partial y}\right) d x d y=\sum_{i=1}^{k} \int_{\gamma_{i}} f \cdot d \vec{s}
+$$
+
+\Recipe[Enclosed Area]: Let $F = \int f dx$ then this implies for example
+$$\int_{X} f(x) = \int_{\gamma} (0, F)\vec{s}$$
+
+\Corollary [4.6.5] Let $X \subset \R^{2}$ be compact with a boundary $\partial X$ that is the union of finitely many simple closed parameterized curves $\gamma_{1}, \ldots, \gamma_{k} .$ Assume that
+$$
+\gamma_{i}=\left(\gamma_{i, 1}, \gamma_{i, 2}\right):\left[a_{i}, b_{i}\right] \rightarrow \mathbf{R}^{2}
+$$
+has the property that $X$ lies always to the left of the tangent vector $\gamma_{i}^{\prime}(t)$ based at $\gamma_{i}(t)$. Then we have
+$$
+\operatorname{Vol}(X)=\sum_{i=1}^{k} \int_{\gamma_{i}} x \cdot d \vec{s}=\sum_{i=1}^{k} \int_{a_{i}}^{b_{i}} \gamma_{i, 1}(t) \gamma_{i, 2}^{\prime}(t) d t
+$$
+
+\Def [Simple closed parameterized curve] \\$\gamma:[a, b] \rightarrow \R^{2}$ is a closed parameterized curve such that $\gamma(t) \neq \gamma(s)$ unless $t=s$ or $\{s, t\}=\{a, b\},$ and such that $\gamma^{\prime}(t) \neq 0$ for $a<t<b .$ (If $\gamma$ is only piecewise $C^{1}$ inside $] a, b[,$ this condition only applies where $\gamma^{\prime}(t)$ exists).
+
+
+
+\begin{comment}
+	
+\end{comment}

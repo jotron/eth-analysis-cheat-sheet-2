@@ -4,7 +4,7 @@
 % Definition von ODE
 \Def A \textit{differential equation} is an equation where the unknown is a function f, and the equation relates $f(x)$ with values of derivatives $f^{(i)}$ \textbf{at the same point} $x$.
 
-\Def Ordinary $\iff$ One variable only
+\Def Ordinary $\iff$ One (input) variable only
 
 \sep
 
@@ -121,5 +121,8 @@ z_{1}^{\prime}(x) f_{1}^{\prime}+z_{2}^{\prime}(x) f_{2}^{\prime}=b
 \end{array}\right.
 $$
 
-\subsection{Other Methods}
-Separation -> See Assistance Summary
+\subsection{Separation of Variables}
+\Recipe
+One can try to separate the variables (e.g only $y$' on the left, only $x$'s on the right) in order to solve a non-linear first order ODE. We get:
+$$\int \frac{\mathrm{d} y}{g(y)}=\int \mathrm{d} x b(x)$$
+If for any $y_0$ it is $g(y_0)=0$, the constant function $y=y_0$ is a solution.
