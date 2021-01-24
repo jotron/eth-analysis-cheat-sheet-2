@@ -119,10 +119,11 @@ $$
 
 \Def[Taylor Polynomial] Let $f\colon \mathbb{R}^n \to \mathbb{R}$ and $f\in C^k(X;\mathbb{R})$. The \textit{k-th Taylor polynomial of $f$ at point $x_0$} is a polynomial in $n$ variables of degree $\le k$ given by $T_kf(y;x_0) =$
 \begin{align*}
-\sum_{{m_1 + \ldots + m_n \leq k}}\frac{1}{m_1!\cdots m_n!}\frac{\partial^k f}{\partial_{1}^{m_1}\cdots \partial_{n}^{m_n}} y_1^{m_1}\cdots y_n^{m_n}
+\sum_{{m_1 + \ldots + m_n \leq k}}\frac{1}{m_1!\cdots m_n!}\frac{\partial^k f}{\partial_{1}^{m_1}\cdots \partial_{n}^{m_n}} \tilde y_1^{m_1}\cdots \tilde y_n^{m_n}
 \end{align*}
-For the 2nd degree case we have:
-$$T_2f(y;x_0) = f(x_0) + \nabla f (x_0) \cdot \vy + 0.5y^T \cdot \text{Hess}_f(x_0) \cdot \vy $$
+where $\tilde y = (y-x_0)$. \\For the 2nd degree case we have:
+$$T_2f(y;x_0) = f(x_0) + \nabla f (x_0) \cdot \tilde y + 0.5\tilde y^T \cdot \text{Hess}_f(x_0) \cdot \vy $$
+
 
 \section{Critical Points} 
 
